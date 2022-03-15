@@ -23,7 +23,7 @@ const checkPangram1 = (string) => {
 
 checkPangram1('The quick Brown fox jumps over the lazy DOG')
 checkPangram1('abcdefghijklmnopqrstuvwxyz')
-checkPangram1('my name is DAVE')
+checkPangram1('IM noT aPANgram')
 
 /* 
 1. convert abc from string to array using .split(')
@@ -54,7 +54,7 @@ const checkPangram2 = (string) => {
 
 checkPangram2('the quick Brown fox jumps over the lazy DOG')
 checkPangram2('abcdefghijklmnopqrstuvwxyz')
-checkPangram2('my name is DAVE')
+checkPangram2('IM noT aPANgram')
 
 /* 
 1. convert string to lowercase
@@ -102,7 +102,7 @@ const checkPangram3 = (string) => {
 
 checkPangram3('the quick Brown fox jumps over the lazy DOG')
 checkPangram3('abcdefghijklmnopqrstuvwxyz')
-checkPangram3('my name is DAVE')
+checkPangram3('IM noT aPANgram')
 
 /********** 
 SOLUTION 4
@@ -150,7 +150,6 @@ const checkPangram4 = (string) => {
 
 checkPangram4('The quick Brown fox jumps over the lazy DOG')
 checkPangram4('abcdefghijklmnopqrstuvwxyz')
-checkPangram4('my name is DAVE')
 checkPangram4('IM noT aPANgram')
 
 /********** 
@@ -174,7 +173,6 @@ const checkPangram5 = (string) => {
 
 checkPangram5('The quick Brown fox jumps over the lazy DOG')
 checkPangram5('abcdefghijklmnopqrstuvwxyz')
-checkPangram5('my name is DAVE')
 checkPangram5('IM noT aPANgram')
 
 /********** 
@@ -198,5 +196,4 @@ const checkPangram6 = (string) => {
 
 checkPangram6('The quick Brown fox jumps over the lazy DOG')
 checkPangram6('abcdefghijklmnopqrstuvwxyz')
-checkPangram6('my name is DAVE')
 checkPangram6('IM noT aPANgram')
