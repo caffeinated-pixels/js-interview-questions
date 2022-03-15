@@ -152,3 +152,27 @@ checkPangram4('The quick Brown fox jumps over the lazy DOG')
 checkPangram4('abcdefghijklmnopqrstuvwxyz')
 checkPangram4('my name is DAVE')
 checkPangram4('IM noT aPANgram')
+
+/********** 
+SOLUTION 5
+based on Scrimba solution of creating a set to dedupe
+**********/
+
+const checkPangram5 = (string) => {
+  const processedString = string.toLowerCase().split(' ').join('')
+  const dedupedArray = Array.from(new Set(processedString))
+
+  const isPangram = dedupedArray.length === 26
+  console.log('solution5', string, isPangram)
+}
+
+/* 
+1. convert string to lowercase; remove spaces by spliting then rejoining
+2. convert processedString to set to remove duplicates, then convert back to array
+3. check if dedupedArray length equal to 26
+*/
+
+checkPangram5('The quick Brown fox jumps over the lazy DOG')
+checkPangram5('abcdefghijklmnopqrstuvwxyz')
+checkPangram5('my name is DAVE')
+checkPangram5('IM noT aPANgram')
