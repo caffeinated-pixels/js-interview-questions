@@ -68,7 +68,16 @@ const checkPangram3 = (string) => {
   let isPangram = true
 
   for (let i = 0; i < abc.length; i++) {
-    const currentLetter = abc[i]
+    if (isPangram == false) break
+    const currentLetterAbc = abc[i]
+
+    for (let j = 0; j < testString.length; j++) {
+      const currentLetterTestString = testString[j]
+
+      if (currentLetterAbc === currentLetterTestString) break
+
+      if (j === testString.length - 1) isPangram = false
+    }
   }
 
   console.log('solution3', string, isPangram)
@@ -78,8 +87,10 @@ const checkPangram3 = (string) => {
 1. convert string to lowercase
 2. set isPangram variable to true
 3. for loop through every letter in abc
-    - check if currentLetter is present in testString using .indexOf()
-    - if currentLetter not present, set isPangram to false and break the loop
+    - break if isPangram is false
+    - each loop for loops through every letter in testString
+    - if current letter in abc equal to current letter in testString, break
+    - if reach end of testString without a match, set isPangram to false (causes outer loop to break)
 4. return the value of isPangram (either true or false)
 */
 
