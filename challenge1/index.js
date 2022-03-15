@@ -9,16 +9,16 @@ spaces
 
 const abc = 'abcdefghijklmnopqrstuvwxyz'
 
-/***** SOLUTION 1 *****/
+/********** 
+SOLUTION 1 
+using every() & indexOf()
+**********/
 const checkPangram1 = (string) => {
   const abcArray = abc.split('')
   const testString = string.toLowerCase()
+  const isPangram = abcArray.every((letter) => testString.indexOf(letter) != -1)
 
-  console.log(
-    'solution1',
-    string,
-    abcArray.every((letter) => testString.indexOf(letter) != -1)
-  )
+  console.log('solution1', string, isPangram)
 }
 
 checkPangram1('The quick Brown fox jumps over the lazy DOG')
@@ -32,7 +32,10 @@ checkPangram1('my name is DAVE')
     - test if each letter occurs in testString using .indexOf()
 */
 
-/***** SOLUTION 2 *****/
+/********** 
+SOLUTION 2
+using for loop & indexOf()
+**********/
 const checkPangram2 = (string) => {
   const testString = string.toLowerCase()
   let isPangram = true
@@ -62,7 +65,10 @@ checkPangram2('my name is DAVE')
 4. return the value of isPangram (either true or false)
 */
 
-/***** SOLUTION 3 *****/
+/********** 
+SOLUTION 3
+using nested for loop
+**********/
 const checkPangram3 = (string) => {
   const testString = string.toLowerCase()
   let isPangram = true
@@ -97,3 +103,52 @@ const checkPangram3 = (string) => {
 checkPangram3('the quick Brown fox jumps over the lazy DOG')
 checkPangram3('abcdefghijklmnopqrstuvwxyz')
 checkPangram3('my name is DAVE')
+
+/********** 
+SOLUTION 4
+same as solution 1, but using my own implementations of every() & indexOf
+**********/
+function indexOf(queryStr) {
+  let index = -1
+  const testLength = queryStr.length
+
+  for (let i = 0; i < this.length; i++) {
+    const currentSegement = this.slice(i, i + testLength)
+    if (currentSegement === queryStr) {
+      index = i
+      break
+    }
+  }
+
+  return index
+}
+
+String.prototype.indexOf = indexOf
+
+function every(callback) {
+  let result = true
+
+  for (let i = 0; i < this.length; i++) {
+    if (callback(this[i], i, this) === false) {
+      result = false
+      break
+    }
+  }
+
+  return result
+}
+
+Array.prototype.every = every
+
+const checkPangram4 = (string) => {
+  const abcArray = abc.split('')
+  const testString = string.toLowerCase()
+  const isPangram = abcArray.every((letter) => testString.indexOf(letter) != -1)
+
+  console.log('solution4', string, isPangram)
+}
+
+checkPangram4('The quick Brown fox jumps over the lazy DOG')
+checkPangram4('abcdefghijklmnopqrstuvwxyz')
+checkPangram4('my name is DAVE')
+checkPangram4('IM noT aPANgram')
