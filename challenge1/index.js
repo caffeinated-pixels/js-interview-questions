@@ -176,3 +176,27 @@ checkPangram5('The quick Brown fox jumps over the lazy DOG')
 checkPangram5('abcdefghijklmnopqrstuvwxyz')
 checkPangram5('my name is DAVE')
 checkPangram5('IM noT aPANgram')
+
+/********** 
+SOLUTION 6
+based on Scrimba solution of using Regex and match
+**********/
+
+const checkPangram6 = (string) => {
+  const matchArray = string.toLowerCase().match(/[a-z]/g)
+  const matchArrayDeduped = [...new Set(matchArray)]
+  const isPangram = matchArrayDeduped.length === 26
+
+  console.log('solution6', string, isPangram)
+}
+
+/* 
+1. convert string to lowercase; create array of letters using match()
+2. convert matchArray to set to remove duplicates,then convert back to array
+3. check if matchArrayDeduped length equal to 26
+*/
+
+checkPangram6('The quick Brown fox jumps over the lazy DOG')
+checkPangram6('abcdefghijklmnopqrstuvwxyz')
+checkPangram6('my name is DAVE')
+checkPangram6('IM noT aPANgram')
