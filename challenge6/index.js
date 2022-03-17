@@ -5,16 +5,19 @@ Implement run length encode and decode functions. Run-length encoding is
 */
 
 const encode = (string) => {
-  const groups = string.match(/(\w)\1+/g)
+  const groups = string.match(/(\w)\1*/g)
   return groups.reduce((acc, curr) => (acc += `${curr.length}${curr[0]}`), '')
 }
 
 /* steps:
 1. use match & regex to create array of grouped letters
-2. iterate through array with reduce to ouput group length and single letter
+  - (\w) captures the first letter, \1* then matches a sequence of that captured letter
+2. iterate through array with reduce() to ouput group length and single letter
 */
 
 const decode = (string) => {}
 
 console.log(encode('wwwiiuuuu')) // 3w2i4u
+console.log(encode('xxddeeeettyxz')) // 2x2d4e2t1y1x1z
+
 console.log(decode('2u3a4o')) // uuaaaoooo
