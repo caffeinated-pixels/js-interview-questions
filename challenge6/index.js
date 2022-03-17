@@ -27,28 +27,28 @@ const encode = (string) => {
 */
 
 const decode = (string) => {
-  const encodedGroups = string.match(/\d\w/g)
+  const encodedGroups = string.match(/\d+\w/g)
+  console.log(encodedGroups)
 
   return encodedGroups.reduce((acc, curr) => {
-    let string = ''
-    const loopsToRun = Number(curr[0])
+    const number = curr.match(/\d+/)[0]
+    const letter = curr.match(/\D/)[0]
+    const sequence = letter.repeat(number)
 
-    for (let i = 0; i < loopsToRun; i++) {
-      string += curr[1]
-    }
-
-    return (acc += string)
+    return (acc += sequence)
   }, '')
 }
 
 /* steps:
+In the end, this is somewhat clumsy solution; solution 2 below is much better
+
 1. use match & regex to create array of encodedgroups
-  - \d\w matches a digit followed by a letter
+  - \d+\w matches 1 or more digits followed by a letter
 2. iterate through array with reduce to decode the encodedgroups, for each iteration:
-  - create an empty string
-  - use the digit to set the number of for loopsToRun
-  - each loop adds a letter to string
-  - add string to the accumulator when the loop finishes
+  - use match to grab the number, store in variable
+  - use match to grab the letter, store in variable
+  - use these two variables with .repeat() to create the letter sequence
+  - add sequence to the accumulator when the loop finishes
 3. return the accumulated value
 */
 
@@ -56,7 +56,7 @@ console.log(encode('wwwiiuuuu')) // 3w2i4u
 console.log(encode('xxddeeeettyxz')) // 2x2d4e2t1y1x1z
 
 console.log(decode('2u3a4o')) // uuaaaoooo
-console.log(decode('1r4b1t5s3x2w')) // rbbbbtsssssxxxww
+console.log(decode('1r4b1t5s3x22w')) // rbbbbtsssssxxxwwwwwwwwww
 
 /********** 
 SOLUTION 2
