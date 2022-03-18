@@ -23,20 +23,29 @@ console.log(
 
 /********** 
 SOLUTION 2 
-using loop
+using for of loop
 **********/
 const removeDuplicateValues2 = (array) => {
   return array.reduce((acc, curr) => {
-    if (acc.includes(curr)) return acc
-    return acc.concat(curr)
+    let isDuplicate = false
+
+    for (accValue of acc) {
+      if (accValue === curr) {
+        isDuplicate = true
+        break
+      }
+    }
+
+    return isDuplicate ? acc : acc.concat(curr)
   }, [])
 }
 /* 
 - intial value is empty array
-- if the accumulator (acc) array includes the current value (curr), we return the accumulator
-- else we add (concat) curr to acc
+- loop through each value in the accumulator
+    - if it equals the current reducer value, we set isDuplicate to true and break out of the loop
+- based on the value of isDuplicate, we return either the unmodified acc or acc + curr
 */
 
 console.log(
-  removeDuplicateValues(['one', 'two', 'one', 'three', 'three', 'two'])
+  removeDuplicateValues2(['one', 'two', 'one', 'three', 'three', 'two'])
 ) // ['one','two','three']
