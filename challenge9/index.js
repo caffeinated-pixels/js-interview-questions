@@ -4,7 +4,7 @@ Write a function that flattens an array using a recursive array.reduce().
 
 /********** 
 SOLUTION 1 
-using typeof & if statement
+using typeof, if statement & concat
 **********/
 const makeFlat = (array) => {
   return array.reduce((acc, curr) => {
@@ -24,7 +24,7 @@ console.log(makeFlat(['one', ['two', 'three'], ['four', ['five']]])) // ['one','
 
 /********** 
 SOLUTION 2 
-based on Scrimba solution of isArray & ternary
+based on Scrimba solution of isArray, ternary & spread operator
 **********/
 const makeFlat2 = (array) => {
   return array.reduce((acc, curr) => {
